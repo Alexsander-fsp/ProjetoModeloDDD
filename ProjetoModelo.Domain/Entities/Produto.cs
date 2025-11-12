@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoModelo.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace PrimeiroModelo.Domain.Entities
         public string Nome { get; set; }
         public decimal Valor { get; set; }
         public bool Disponivel { get; set; }
-        public int ClienteId { get; set; }
+        public int ClienteProduto { get; set; }
         public virtual Cliente Cliente { get; set; }
     }
 }

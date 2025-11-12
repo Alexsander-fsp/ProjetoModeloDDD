@@ -1,4 +1,5 @@
 ﻿using PrimeiroModelo.Domain.Entities;
+using ProjetoModelo.Domain.Entities;
 using ProjetoModelo.Infra.Data.EntityConfig;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace ProjetoModelo.Infra.Data.Context
 
         }
         public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Produto> Produto { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,7 +29,9 @@ namespace ProjetoModelo.Infra.Data.Context
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
             modelBuilder.Properties().Where(p => p.Name == p.ReflectedType.Name + "Id").Configure(p => p.IsKey());
+
             modelBuilder.Configurations.Add(new ClienteConfiguration());
+            modelBuilder.Configurations.Add(new ProdutoConfiguration());
         }
         public override int SaveChanges()
         {

@@ -1,15 +1,17 @@
-﻿using System;
+﻿using PrimeiroModelo.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 
-namespace PrimeiroModelo.Domain.Entities
+namespace ProjetoModelo.Domain.Entities
 {
     public class Cliente
     {
-        public int ClienteId { get; set; }
+        
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string Email { get; set; }
@@ -19,7 +21,7 @@ namespace PrimeiroModelo.Domain.Entities
 
         public bool ClienteEspecial(Cliente cliente)
         {
-            return cliente.Ativo && DateTime.Now.Year - cliente.DataCadastro.Year >= 5; 
+            return cliente.Ativo && DateTime.Now.Year - cliente.DataCadastro.Year >= 5;
         }
     }
 }

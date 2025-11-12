@@ -241,12 +241,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProjetoModelo.Infra.Data\ProjetoModeloDDD.Infra.Data.csproj">
-      <Project>{befe1eda-1a68-4e69-b3c2-5a21e733553e}</Project>
-      <Name>ProjetoModeloDDD.Infra.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

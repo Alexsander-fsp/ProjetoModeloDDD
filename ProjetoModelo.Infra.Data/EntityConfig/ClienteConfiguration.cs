@@ -1,4 +1,4 @@
-﻿using PrimeiroModelo.Domain.Entities;
+﻿using ProjetoModelo.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -12,10 +12,10 @@ namespace ProjetoModelo.Infra.Data.EntityConfig
     {
         public ClienteConfiguration()
         {
-            HasKey(c => c.ClienteId);
+            HasKey(c => c.Id);
             Property(c => c.Nome).IsRequired().HasMaxLength(150);
             Property(c => c.Sobrenome).IsRequired().HasMaxLength(150);
-            Property(c => c.Sobrenome).IsRequired();
+            Property(c => c.Email).IsRequired();
         }
     }
 }
