@@ -1,13 +1,15 @@
 ﻿using PrimeiroModelo.Domain.Entities;
+using ProjetoModelo.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace ProjetoModeloDDD.MVC.ViewModels
 {
-    public class ClienteViewModel
+    public class ClienteViewModel 
     {
         [Key]
         public int Id { get; set; }
@@ -24,14 +26,15 @@ namespace ProjetoModeloDDD.MVC.ViewModels
 
         public string Sobrenome { get; set; }
 
-        [Required(ErrorMessage = "Preencha o campo email")]
-        [MaxLength(150, ErrorMessage = "Máximo {0} caracteres")]
-        [MinLength(2, ErrorMessage = "Mínimo {0} caracteres")]
+        [Required(ErrorMessage = "Preencha o campo e-mail")]
+        [MaxLength(100, ErrorMessage = "Máximo {0} caracteres")]
+        [EmailAddress(ErrorMessage = "Preencha com um email válido")]
+        [DisplayName("E-mail")]
 
         public string Email { get; set; }
 
         public DateTime DataCadastro { get; set; }
         public bool Ativo { get; set; }
-        //public virtual IEnumerable<Produto> Produtos { get; set; }
+        public virtual IEnumerable<ProdutoViewModel> Produtos { get; set; }
     }
 }
