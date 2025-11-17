@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ProjetoModeloDDD.MVC.AutoMapper;
 
 namespace ProjetoModeloDDD.MVC.AutoMapper
 {
@@ -10,8 +11,8 @@ namespace ProjetoModeloDDD.MVC.AutoMapper
     {
         public static void RegisterMappings()
         {
-            Mapper.Initialize(x => x.AddProfile<DomainToViewModelMappingProfile>());
-            Mapper.Initialize(x => x.AddProfile<ViewModelToDomainMappingProfile>());
+            Mapper.Initialize<DomainToViewModelMappingProfile>();
+            Mapper.Initialize<ViewModelToDomainMappingProfile>();
         }
     }
 }
