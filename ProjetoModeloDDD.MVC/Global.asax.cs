@@ -1,3 +1,5 @@
+using AutoMapper;
+using ProjetoModeloDDD.MVC.AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,18 @@ namespace ProjetoModeloDDD.MVC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Configuração do AutoMapper
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+
+                // Adicione outros Profiles aqui
+            });
+
+            // Opcional: validar configuração
+            Mapper.Configuration.AssertConfigurationIsValid();
+
         }
     }
 }

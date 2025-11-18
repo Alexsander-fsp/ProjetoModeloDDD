@@ -12,6 +12,7 @@ namespace ProjetoModelo.Infra.Data.Repositories
     public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
     {
         protected ProjetoModeloContext Db = new ProjetoModeloContext();
+
         public void Add(TEntity obj)
         {
             Db.Set<TEntity>().Add(obj);

@@ -6,18 +6,20 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using ProjetoModelo.Domain.Entities;
-using ProjetoModeloDDD.MVC.ViewModels;
+using ProjetoModeloDDD.Aplication.ViewModels;
 
 namespace ProjetoModeloDDD.MVC.Controllers
 {
     public class ClienteController : Controller
     {
-        private readonly ClienteRepository _clienteRepository = new ClienteRepository();
+        private readonly ClienteRepository _clienteRepository = new ClienteRepository();        
+
         // GET: Client
         public ActionResult Index()
         {
-            var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>
-                (_clienteRepository.GetAll()); 
+            var listaCliente = _clienteRepository.GetAll();
+            var clienteViewModel = Mapper.Map<List<ClienteViewModel>>(listaCliente);                
+            
             return View(clienteViewModel);
         }
 
@@ -36,11 +38,11 @@ namespace ProjetoModeloDDD.MVC.Controllers
         // POST: Client/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ClienteViewModel cliente)
+        public ActionResult Create(ClienteViewModel clienteViewModel)
         {
             if (ModelState.IsValid)
             {
-                var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(cliente);
+                var clienteDomain = Mapper.Map<Cliente>(clienteViewModel);
                 _clienteRepository.Add(clienteDomain);
 
                 return RedirectToAction("Index");
@@ -48,7 +50,7 @@ namespace ProjetoModeloDDD.MVC.Controllers
 
             else
             {
-                return View(cliente); 
+                return View(clienteViewModel); 
             }
         }
 

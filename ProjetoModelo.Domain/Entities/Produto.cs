@@ -14,6 +14,7 @@ namespace PrimeiroModelo.Domain.Entities
         public decimal Valor { get; set; }
         public bool Disponivel { get; set; }
         public int ClienteProduto { get; set; }
+
         public virtual Cliente Cliente { get; set; }
     }
 }

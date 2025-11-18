@@ -15,7 +15,6 @@ namespace ProjetoModelo.Infra.Data.Context
     {
         public ProjetoModeloContext() : base("ProjetoModeloDDD")
         {
-
         }
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Produto> Produto { get; set; }
@@ -33,6 +32,7 @@ namespace ProjetoModelo.Infra.Data.Context
             modelBuilder.Configurations.Add(new ClienteConfiguration());
             modelBuilder.Configurations.Add(new ProdutoConfiguration());
         }
+
         public override int SaveChanges()
         {
             foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
