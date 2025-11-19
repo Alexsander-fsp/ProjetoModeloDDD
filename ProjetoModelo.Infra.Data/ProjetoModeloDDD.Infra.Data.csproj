@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjetoModelo.Infra.Data</RootNamespace>
     <AssemblyName>ProjetoModelo.Infra.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
@@ -128,6 +128,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjetoModelo.Aplication\ProjetoModeloDDD.Aplication.csproj">
+      <Project>{ad652394-0f47-40ff-8ac9-5898d732be21}</Project>
+      <Name>ProjetoModeloDDD.Aplication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjetoModelo.Domain\ProjetoModeloDDD.Domain.csproj">
       <Project>{23FBD69E-E904-47AE-97B9-0C7C3EED9004}</Project>
       <Name>ProjetoModeloDDD.Domain</Name>

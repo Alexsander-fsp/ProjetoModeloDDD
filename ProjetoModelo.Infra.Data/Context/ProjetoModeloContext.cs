@@ -13,7 +13,7 @@ namespace ProjetoModelo.Infra.Data.Context
 {
     public class ProjetoModeloContext : DbContext
     {
-        public ProjetoModeloContext() : base("ProjetoModeloDB")
+        public ProjetoModeloContext() : base("TesteDB")
         {
         }
         public DbSet<Cliente> Cliente { get; set; }

@@ -11,9 +11,9 @@ namespace ProjetoModelo.Infra.Data.Repositories
 {
     public class ClienteRepository : RepositoryBase<Cliente>, IClienteRepository
     {
-        public ClienteRepository(ProjetoModeloContext projetoModeloContext): base(projetoModeloContext)
+        public ClienteRepository(ProjetoModeloContext projetoModeloContext) : base(projetoModeloContext)
         {
-            
+
         }
     }
 }
