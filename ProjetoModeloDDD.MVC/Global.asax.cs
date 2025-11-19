@@ -12,6 +12,8 @@ namespace ProjetoModeloDDD.MVC
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static IMapper MapperInstance { get; private set; }
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -19,17 +21,17 @@ namespace ProjetoModeloDDD.MVC
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            // Configuração do AutoMapper
-            Mapper.Initialize(cfg =>
+            // Configuração do AutoMapper usando a API baseada em instância
+            var config = new MapperConfiguration(cfg =>
             {
                 cfg.AddProfile<MappingProfile>();
-
                 // Adicione outros Profiles aqui
             });
 
-            // Opcional: validar configuração
-            Mapper.Configuration.AssertConfigurationIsValid();
+            MapperInstance = config.CreateMapper();
 
+            // Opcional: validar configuração
+            config.AssertConfigurationIsValid();
         }
     }
 }
