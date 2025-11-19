@@ -1,5 +1,6 @@
 ﻿using PrimeiroModelo.Domain.Interfaces;
 using ProjetoModelo.Domain.Entities;
+using ProjetoModelo.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,9 @@ namespace ProjetoModelo.Infra.Data.Repositories
 {
     public class ClienteRepository : RepositoryBase<Cliente>, IClienteRepository
     {
-
+        public ClienteRepository(ProjetoModeloContext projetoModeloContext): base(projetoModeloContext)
+        {
+            
+        }
     }
 }

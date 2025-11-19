@@ -11,8 +11,8 @@ using System.Web.Routing;
 namespace ProjetoModeloDDD.MVC
 {
     public class MvcApplication : System.Web.HttpApplication
-    {
-        public static IMapper MapperInstance { get; private set; }
+    {        
+        public static IMapper AutoMapperConfig { get; set; }
 
         protected void Application_Start()
         {
@@ -28,7 +28,8 @@ namespace ProjetoModeloDDD.MVC
                 // Adicione outros Profiles aqui
             });
 
-            MapperInstance = config.CreateMapper();
+            // Armazena em um container estático para reuso
+            AutoMapperConfig = config.CreateMapper();            
 
             // Opcional: validar configuração
             config.AssertConfigurationIsValid();

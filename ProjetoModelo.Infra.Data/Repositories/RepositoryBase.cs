@@ -11,12 +11,17 @@ namespace ProjetoModelo.Infra.Data.Repositories
 {
     public class RepositoryBase<TEntity> : IDisposable, IRepositoryBase<TEntity> where TEntity : class
     {
-        protected ProjetoModeloContext Db = new ProjetoModeloContext();
+        internal readonly ProjetoModeloContext _projetoModeloContext;
+
+        public RepositoryBase(ProjetoModeloContext projetoModeloContext)
+        {
+            _projetoModeloContext = projetoModeloContext;
+        }
 
         public void Add(TEntity obj)
         {
-            Db.Set<TEntity>().Add(obj);
-            Db.SaveChanges();
+            _projetoModeloContext.Set<TEntity>().Add(obj);
+            _projetoModeloContext.SaveChanges();
         }
 
         public void Dispose()
@@ -26,25 +31,25 @@ namespace ProjetoModelo.Infra.Data.Repositories
 
         public IEnumerable<TEntity> GetAll()
         {
-            return Db.Set<TEntity>().ToList();
+            return _projetoModeloContext.Set<TEntity>().ToList();
         }
 
         public TEntity GetById(int id)
         {
-            return Db.Set<TEntity>().Find(id);
-            Db.SaveChanges();
+            return _projetoModeloContext.Set<TEntity>().Find(id);
+            _projetoModeloContext.SaveChanges();
         }
 
         public void Remove(TEntity obj)
         {
-            Db.Entry(obj).State = EntityState.Deleted;
-            Db.SaveChanges();
+            _projetoModeloContext.Entry(obj).State = EntityState.Deleted;
+            _projetoModeloContext.SaveChanges();
         }
 
         public void Update(TEntity obj)
         {
-            Db.Entry(obj).State = EntityState.Modified;
-            Db.SaveChanges();
+            _projetoModeloContext.Entry(obj).State = EntityState.Modified;
+            _projetoModeloContext.SaveChanges();
         }
     }
 }

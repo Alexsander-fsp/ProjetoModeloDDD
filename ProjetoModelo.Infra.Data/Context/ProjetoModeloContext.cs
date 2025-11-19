@@ -13,7 +13,7 @@ namespace ProjetoModelo.Infra.Data.Context
 {
     public class ProjetoModeloContext : DbContext
     {
-        public ProjetoModeloContext() : base("ProjetoModeloDDD")
+        public ProjetoModeloContext() : base("ProjetoModeloDB")
         {
         }
         public DbSet<Cliente> Cliente { get; set; }
@@ -27,7 +27,7 @@ namespace ProjetoModelo.Infra.Data.Context
 
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
-            modelBuilder.Properties().Where(p => p.Name == p.ReflectedType.Name + "Id").Configure(p => p.IsKey());
+            //modelBuilder.Properties().Where(p => p.Name == p.ReflectedType.Name + "Id").Configure(p => p.IsKey());
 
             modelBuilder.Configurations.Add(new ClienteConfiguration());
             modelBuilder.Configurations.Add(new ProdutoConfiguration());

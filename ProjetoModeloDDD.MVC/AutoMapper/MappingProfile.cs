@@ -10,8 +10,14 @@ namespace ProjetoModeloDDD.MVC.AutoMapper
     {      
         public MappingProfile()
         {
-            CreateMap<ClienteViewModel, Cliente>().ReverseMap();
+            CreateMap<ClienteViewModel, Cliente>()
+                .ForMember(dest => dest.Produtos, opt => opt.Ignore()).ReverseMap();
+
+            CreateMap<Cliente, ClienteViewModel>()
+                .ForMember(dest => dest.Produtos, opt => opt.Ignore()).ReverseMap();
+
             CreateMap<List<ClienteViewModel>, List<Cliente>>().ReverseMap();
+            CreateMap<List<Cliente>, List<ClienteViewModel>>().ReverseMap();
 
             CreateMap<ProdutoViewModel, Produto>().
                 ForMember(dest => dest.Cliente, opt => opt.Ignore()).ReverseMap();

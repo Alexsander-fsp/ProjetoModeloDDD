@@ -1,24 +1,32 @@
-﻿using ProjetoModelo.Infra.Data.Repositories;
+﻿using AutoMapper;
+using ProjetoModelo.Domain.Entities;
+using ProjetoModelo.Infra.Data.Context;
+using ProjetoModelo.Infra.Data.Repositories;
+using ProjetoModeloDDD.Aplication.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using AutoMapper;
-using ProjetoModelo.Domain.Entities;
-using ProjetoModeloDDD.Aplication.ViewModels;
 
 namespace ProjetoModeloDDD.MVC.Controllers
 {
     public class ClienteController : Controller
     {
-        private readonly ClienteRepository _clienteRepository = new ClienteRepository();        
+        private readonly ClienteRepository _clienteRepository;
+
+        public ClienteController()
+        {
+            ProjetoModeloContext projetoModeloContext = new ProjetoModeloContext();
+            _clienteRepository = new ClienteRepository(projetoModeloContext);                
+        }
 
         // GET: Client
         public ActionResult Index()
         {
-            var listaCliente = _clienteRepository.GetAll();
-            var clienteViewModel = Mapper.Map<List<ClienteViewModel>>(listaCliente);                
+
+            var listaCliente = _clienteRepository.GetAll().ToList();
+            var clienteViewModel = MvcApplication.AutoMapperConfig.Map<List<ClienteViewModel>>(listaCliente);            
             
             return View(clienteViewModel);
         }
@@ -42,7 +50,8 @@ namespace ProjetoModeloDDD.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                var clienteDomain = Mapper.Map<Cliente>(clienteViewModel);
+                var clienteDomain = MvcApplication.AutoMapperConfig.Map<Cliente>(clienteViewModel);
+
                 _clienteRepository.Add(clienteDomain);
 
                 return RedirectToAction("Index");
