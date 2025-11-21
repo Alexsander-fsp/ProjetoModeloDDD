@@ -46,8 +46,8 @@
     <Compile Include="Entities\Colaborador.cs" />
     <Compile Include="Entities\Produto.cs" />
     <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IColaboradorRepository.cs" />
-    <Compile Include="Interfaces\Services\IColaboradorService.cs" />
+    <Compile Include="Interfaces\Repositories\IColaboradorInfraDataRepository.cs" />
+    <Compile Include="Interfaces\Services\IColaboradorDomainService.cs" />
     <Compile Include="Interfaces\Repositories\IProdutoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

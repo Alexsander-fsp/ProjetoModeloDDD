@@ -24,11 +24,6 @@ namespace ProjetoModelo.Infra.Data.Repositories
             _projetoModeloContext.SaveChanges();
         }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<TEntity> GetAll()
         {
             return _projetoModeloContext.Set<TEntity>().ToList();
@@ -50,6 +45,11 @@ namespace ProjetoModelo.Infra.Data.Repositories
         {
             _projetoModeloContext.Entry(obj).State = EntityState.Modified;
             _projetoModeloContext.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }

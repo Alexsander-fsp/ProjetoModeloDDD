@@ -1,4 +1,5 @@
-﻿using PrimeiroModelo.Domain.Interfaces.Repositories;
+﻿using PrimeiroModelo.Domain.Entities;
+using PrimeiroModelo.Domain.Interfaces.Repositories;
 using PrimeiroModelo.Domain.Interfaces.Services;
 using PrimeiroModelo.Domain.Services;
 using ProjetoModelo.Infra.Data.Context;
@@ -17,23 +18,23 @@ namespace ProjetoModeloDDD.MVC.Controllers
 {
     public class ColaboradorController : Controller
     {
-        private readonly IColaboradorAppService _colaboradorAppService;
+        private readonly IColaboradorApplicationService _colaboradorApplicationService;
 
         public ColaboradorController()
         {
             ProjetoModeloContext projetoModeloContext = new ProjetoModeloContext();
-            IColaboradorRepository colaboradorRepository = new ColaboradorRepository(projetoModeloContext);
-            IColaboradorService colaboradorService = new ColaboradorService(colaboradorRepository);
-            IColaboradorAppService colaboradorAppService = new ColaboradorAppService(colaboradorService);
+            IColaboradorInfraDataRepository colaboradorRepository = new ColaboradorRepository(projetoModeloContext);
+            IColaboradorDomainService colaboradorService = new ColaboradorService(colaboradorRepository);
+            IColaboradorApplicationService colaboradorAppService = new ColaboradorAppService(colaboradorService);
 
-            _colaboradorAppService = colaboradorAppService;
+            _colaboradorApplicationService = colaboradorAppService;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
             List<ColaboradorViewModel> colaboradores = new List<ColaboradorViewModel>();
-            colaboradores = _colaboradorAppService.GetAll();
+            colaboradores = _colaboradorApplicationService.GetAll();
            
             return View(colaboradores);
         }
@@ -43,13 +44,13 @@ namespace ProjetoModeloDDD.MVC.Controllers
         {
             ColaboradorCommand colaboradorCommand = new ColaboradorCommand();
 
-            return View(colaboradorCommand);
+            return View(colaboradorCommand);    
         }
 
         [HttpPost]
         public ActionResult Create(ColaboradorCommand colaboradorCommand)
-        {            
-
+        {
+            _colaboradorApplicationService.Salvar(colaboradorCommand);
             return RedirectToAction("Index");
         }
     }

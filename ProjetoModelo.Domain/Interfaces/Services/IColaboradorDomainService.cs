@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace PrimeiroModelo.Domain.Interfaces.Services
 {
-    public interface IColaboradorService
+    public interface IColaboradorDomainService
     {
         List<Colaborador> GetAll();
+        void Salvar(Colaborador colaborador);
     }
 }

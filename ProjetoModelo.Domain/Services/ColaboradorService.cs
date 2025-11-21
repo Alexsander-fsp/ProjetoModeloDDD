@@ -7,17 +7,22 @@ using System.Linq;
 
 namespace PrimeiroModelo.Domain.Services
 {
-    public class ColaboradorService : IColaboradorService
+    public class ColaboradorService : IColaboradorDomainService
     {
-        private readonly IColaboradorRepository _colaboradorRepository;
+        private readonly IColaboradorInfraDataRepository _colaboradorInfraDataRepository;
 
-        public ColaboradorService(IColaboradorRepository colaboradorRepository)
+        public ColaboradorService(IColaboradorInfraDataRepository colaboradorRepository)
         {
-            _colaboradorRepository = colaboradorRepository;
+            _colaboradorInfraDataRepository = colaboradorRepository;
         }
         public List<Colaborador> GetAll()
         {
-            return _colaboradorRepository.GetAll().ToList();
+            return _colaboradorInfraDataRepository.GetAll().ToList();
+        }
+
+        public void Salvar(Colaborador colaborador)
+        {
+            _colaboradorInfraDataRepository.Add(colaborador);
         }
     }
 }

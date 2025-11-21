@@ -1,5 +1,6 @@
 ﻿using PrimeiroModelo.Domain.Entities;
 using PrimeiroModelo.Domain.Interfaces.Services;
+using ProjetoModeloDDD.Aplication.Commands;
 using ProjetoModeloDDD.Aplication.Interfaces;
 using ProjetoModeloDDD.Aplication.ViewModels;
 using System;
@@ -10,20 +11,20 @@ using System.Threading.Tasks;
 
 namespace ProjetoModeloDDD.Aplication.Services
 {
-    public class ColaboradorAppService : IColaboradorAppService
+    public class ColaboradorAppService : IColaboradorApplicationService
     {
-        private readonly IColaboradorService _colaboradorService;
+        private readonly IColaboradorDomainService _colaboradorDomainService;
 
-        public ColaboradorAppService(IColaboradorService colaboradorService)
+        public ColaboradorAppService(IColaboradorDomainService colaboradorService)
         {
-            _colaboradorService = colaboradorService;
+            _colaboradorDomainService = colaboradorService;
         }
 
         public List<ColaboradorViewModel> GetAll()
         {
             List<ColaboradorViewModel> colaboradorViewModels = new List<ColaboradorViewModel>();
 
-            List<Colaborador> listColaboradoresDomain = _colaboradorService.GetAll();
+            List<Colaborador> listColaboradoresDomain = _colaboradorDomainService.GetAll();
 
 
             foreach (Colaborador colaboradorDomain in listColaboradoresDomain)
@@ -43,6 +44,21 @@ namespace ProjetoModeloDDD.Aplication.Services
             }
 
             return colaboradorViewModels;
+        }
+
+        public void Salvar(ColaboradorCommand colaboradorCommand)
+        {
+            Colaborador colaborador = new Colaborador();
+
+            colaborador.Nome = colaboradorCommand.Nome;
+            colaborador.Cargo = colaboradorCommand.Cargo;
+            colaborador.Departamento = colaboradorCommand.Departamento;
+            colaborador.DataAdmissao = colaboradorCommand.DataAdmissao;
+            colaborador.Salario = colaboradorCommand.Salario;
+            colaborador.Email = colaboradorCommand.Email;
+            colaborador.Telefone = colaboradorCommand.Telefone;
+
+            _colaboradorDomainService.Salvar(colaborador);
         }
     }
 }

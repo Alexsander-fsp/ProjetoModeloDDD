@@ -2,7 +2,7 @@
 
 namespace PrimeiroModelo.Domain.Interfaces.Repositories
 {
-    public interface IColaboradorRepository : IRepositoryBase<Colaborador>
+    public interface IColaboradorInfraDataRepository : IRepositoryBase<Colaborador>
     {
     }
 }
