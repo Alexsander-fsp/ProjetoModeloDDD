@@ -1,4 +1,4 @@
-﻿using PrimeiroModelo.Domain.Interfaces;
+﻿using PrimeiroModelo.Domain.Interfaces.Repositories;
 using ProjetoModelo.Infra.Data.Context;
 using System;
 using System.Collections.Generic;

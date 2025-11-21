@@ -13,11 +13,13 @@ namespace ProjetoModelo.Infra.Data.Context
 {
     public class ProjetoModeloContext : DbContext
     {
-        public ProjetoModeloContext() : base("TesteDB")
+        public ProjetoModeloContext() : base("ProjetoModeloDB")
         {
         }
+
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Produto> Produto { get; set; }
+        public DbSet<Colaborador> Colaborador { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

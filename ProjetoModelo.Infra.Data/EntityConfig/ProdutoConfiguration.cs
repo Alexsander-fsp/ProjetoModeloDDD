@@ -14,6 +14,7 @@ namespace ProjetoModelo.Infra.Data.EntityConfig
     {
         public ProdutoConfiguration()
         {
+            ToTable("Produto");
             HasKey(p => p.Id);
             Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(p => p.Nome).IsRequired().HasMaxLength(150);

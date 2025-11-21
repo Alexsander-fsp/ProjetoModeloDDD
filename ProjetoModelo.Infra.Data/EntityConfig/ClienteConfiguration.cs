@@ -13,6 +13,7 @@ namespace ProjetoModelo.Infra.Data.EntityConfig
     {
         public ClienteConfiguration()
         {
+            ToTable("Cliente");
             HasKey(c => c.Id);
             Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(c => c.Nome).IsRequired().HasMaxLength(150);

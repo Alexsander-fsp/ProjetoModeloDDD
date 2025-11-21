@@ -1,4 +1,4 @@
-﻿using PrimeiroModelo.Domain.Interfaces;
+﻿using PrimeiroModelo.Domain.Interfaces.Repositories;
 using ProjetoModelo.Domain.Entities;
 using ProjetoModelo.Infra.Data.Context;
 using System;
