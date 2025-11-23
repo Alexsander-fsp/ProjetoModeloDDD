@@ -13,6 +13,7 @@ namespace PrimeiroModelo.Domain.Interfaces.Repositories
         IEnumerable<TEntity> GetAll();
         void Update(TEntity obj);
         void Remove(TEntity obj);
+        void RemoveById(int id);
         void Dispose();
     }
 }

@@ -31,13 +31,20 @@ namespace ProjetoModelo.Infra.Data.Repositories
 
         public TEntity GetById(int id)
         {
-            return _projetoModeloContext.Set<TEntity>().Find(id);
-            _projetoModeloContext.SaveChanges();
+            return _projetoModeloContext.Set<TEntity>().Find(id);            
         }
 
         public void Remove(TEntity obj)
         {
             _projetoModeloContext.Entry(obj).State = EntityState.Deleted;
+            _projetoModeloContext.SaveChanges();
+        }
+
+        public void RemoveById(int id)
+        {
+            var entity = GetById(id);
+
+            _projetoModeloContext.Entry(entity).State = EntityState.Deleted;
             _projetoModeloContext.SaveChanges();
         }
 

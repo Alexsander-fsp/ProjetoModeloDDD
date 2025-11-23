@@ -7,11 +7,11 @@ using System.Linq;
 
 namespace PrimeiroModelo.Domain.Services
 {
-    public class ColaboradorService : IColaboradorDomainService
+    public class ColaboradorDomainService : IColaboradorDomainService
     {
         private readonly IColaboradorInfraDataRepository _colaboradorInfraDataRepository;
 
-        public ColaboradorService(IColaboradorInfraDataRepository colaboradorRepository)
+        public ColaboradorDomainService(IColaboradorInfraDataRepository colaboradorRepository)
         {
             _colaboradorInfraDataRepository = colaboradorRepository;
         }

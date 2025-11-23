@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjetoModeloDDD.Aplication</RootNamespace>
     <AssemblyName>ProjetoModeloDDD.Aplication</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -44,10 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ColaboradorCommand.cs" />
+    <Compile Include="Commands\FornecedorCommand.cs" />
     <Compile Include="Interfaces\IColaboradorApplicationService.cs" />
     <Compile Include="Interfaces\IClienteAppService.cs" />
+    <Compile Include="Interfaces\IFornecedorApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ColaboradorAppService.cs" />
+    <Compile Include="Services\FornecedorAppService.cs" />
     <Compile Include="ViewModels\ClienteViewModel.cs" />
     <Compile Include="ViewModels\ColaboradorViewModel.cs" />
     <Compile Include="ViewModels\FornecedorViewModel.cs" />

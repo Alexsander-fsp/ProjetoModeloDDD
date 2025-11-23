@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoModeloDDD.Aplication.ViewModels
+namespace ProjetoModeloDDD.Aplication.Commands
 {
-    public class FornecedorViewModel
+    public class FornecedorCommand
     {
-        public int Id { get; set; }           // Identificador único
+        public int Id { get; set; }
         public string Nome { get; set; }      // Nome do fornecedor
         public string CNPJ { get; set; }      // Cadastro Nacional da Pessoa Jurídica
         public string Telefone { get; set; }  // Contato telefônico

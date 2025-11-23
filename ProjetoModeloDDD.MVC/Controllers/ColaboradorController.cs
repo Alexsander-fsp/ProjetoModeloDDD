@@ -24,7 +24,7 @@ namespace ProjetoModeloDDD.MVC.Controllers
         {
             ProjetoModeloContext projetoModeloContext = new ProjetoModeloContext();
             IColaboradorInfraDataRepository colaboradorRepository = new ColaboradorRepository(projetoModeloContext);
-            IColaboradorDomainService colaboradorService = new ColaboradorService(colaboradorRepository);
+            IColaboradorDomainService colaboradorService = new ColaboradorDomainService(colaboradorRepository);
             IColaboradorApplicationService colaboradorAppService = new ColaboradorAppService(colaboradorService);
 
             _colaboradorApplicationService = colaboradorAppService;

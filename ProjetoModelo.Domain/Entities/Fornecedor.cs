@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoModeloDDD.Aplication.ViewModels
+namespace PrimeiroModelo.Domain.Entities
 {
-    public class FornecedorViewModel
+    public class Fornecedor
     {
         public int Id { get; set; }           // Identificador único
         public string Nome { get; set; }      // Nome do fornecedor
