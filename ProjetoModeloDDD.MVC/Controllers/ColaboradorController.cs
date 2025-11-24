@@ -35,7 +35,7 @@ namespace ProjetoModeloDDD.MVC.Controllers
         {
             List<ColaboradorViewModel> colaboradores = new List<ColaboradorViewModel>();
             colaboradores = _colaboradorApplicationService.GetAll();
-           
+
             return View(colaboradores);
         }
 
@@ -44,7 +44,7 @@ namespace ProjetoModeloDDD.MVC.Controllers
         {
             ColaboradorCommand colaboradorCommand = new ColaboradorCommand();
 
-            return View(colaboradorCommand);    
+            return View(colaboradorCommand);
         }
 
         [HttpPost]
@@ -52,6 +52,54 @@ namespace ProjetoModeloDDD.MVC.Controllers
         {
             _colaboradorApplicationService.Salvar(colaboradorCommand);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            ColaboradorCommand colaboradorCommand = _colaboradorApplicationService.GetById(id);
+            return View(colaboradorCommand);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(ColaboradorCommand colaboradorCommand)
+        {
+            try
+            {
+                _colaboradorApplicationService.Atualizar(colaboradorCommand);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            ColaboradorViewModel colaboradorViewModel = _colaboradorApplicationService.GetByIdViewModel(id);
+            return View(colaboradorViewModel);
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            ColaboradorCommand colaboradorCommand = _colaboradorApplicationService.GetById(id);
+            return View(colaboradorCommand);
+        }
+        [HttpPost]
+        public ActionResult Delete(ColaboradorCommand colaboradorCommand)
+        {
+            try
+            {
+                _colaboradorApplicationService.Deletar(colaboradorCommand.Id);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

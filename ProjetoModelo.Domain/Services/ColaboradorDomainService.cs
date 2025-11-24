@@ -15,9 +15,26 @@ namespace PrimeiroModelo.Domain.Services
         {
             _colaboradorInfraDataRepository = colaboradorRepository;
         }
+
+        public void Atualizar(Colaborador colaborador)
+        {
+            _colaboradorInfraDataRepository.Update(colaborador);
+        }
+
+        public void Deletar(int id)
+        {
+            _colaboradorInfraDataRepository.RemoveById(id);
+        }
+        
         public List<Colaborador> GetAll()
         {
             return _colaboradorInfraDataRepository.GetAll().ToList();
+        }
+
+        public Colaborador GetById(int id)
+        {
+            var colaborador = _colaboradorInfraDataRepository.GetById(id);
+            return colaborador;
         }
 
         public void Salvar(Colaborador colaborador)

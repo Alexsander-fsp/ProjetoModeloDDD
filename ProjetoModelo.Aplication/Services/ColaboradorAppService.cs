@@ -20,6 +20,28 @@ namespace ProjetoModeloDDD.Aplication.Services
             _colaboradorDomainService = colaboradorService;
         }
 
+        public void Atualizar(ColaboradorCommand colaboradorCommand)
+        {
+            Colaborador colaborador = new Colaborador()
+            {
+                Id = colaboradorCommand.Id,
+                Nome = colaboradorCommand.Nome,
+                Cargo = colaboradorCommand.Cargo,
+                Departamento = colaboradorCommand.Departamento,
+                DataAdmissao = colaboradorCommand.DataAdmissao,
+                Salario = colaboradorCommand.Salario,
+                Email = colaboradorCommand.Email,
+                Telefone = colaboradorCommand.Telefone
+            };
+
+            _colaboradorDomainService.Atualizar(colaborador);
+        }
+
+        public void Deletar(int id)
+        {
+            _colaboradorDomainService.Deletar(id);
+        }
+
         public List<ColaboradorViewModel> GetAll()
         {
             List<ColaboradorViewModel> colaboradorViewModels = new List<ColaboradorViewModel>();
@@ -44,6 +66,41 @@ namespace ProjetoModeloDDD.Aplication.Services
             }
 
             return colaboradorViewModels;
+        }
+
+        public ColaboradorCommand GetById(int id)
+        {
+            var colaborador = _colaboradorDomainService.GetById(id);
+
+            ColaboradorCommand colaboradorCommand = new ColaboradorCommand()
+            {
+                Id = colaborador.Id,
+                Nome = colaborador.Nome,
+                Cargo = colaborador.Cargo,
+                Departamento = colaborador.Departamento,
+                DataAdmissao = colaborador.DataAdmissao,
+                Salario = colaborador.Salario,
+                Email = colaborador.Email,
+                Telefone = colaborador.Telefone
+            };
+            return colaboradorCommand;
+        }
+
+        public ColaboradorViewModel GetByIdViewModel(int id)
+        {
+            var colaborador = _colaboradorDomainService.GetById(id);
+            ColaboradorViewModel colaboradorViewModel = new ColaboradorViewModel()
+            {
+                Id = colaborador.Id,
+                Nome = colaborador.Nome,
+                Cargo = colaborador.Cargo,
+                Departamento = colaborador.Departamento,
+                DataAdmissao = colaborador.DataAdmissao,
+                Salario = colaborador.Salario,
+                Email = colaborador.Email,
+                Telefone = colaborador.Telefone
+            };
+            return colaboradorViewModel;
         }
 
         public void Salvar(ColaboradorCommand colaboradorCommand)

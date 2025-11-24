@@ -93,16 +93,16 @@ namespace ProjetoModeloDDD.Aplication.Services
 
         public FornecedorViewModel GetByIdViewModel(int id)
         {
-            var EntityDornecedor = _fornecedorDomainService.GetById(id);
+            var EntityFornecedor = _fornecedorDomainService.GetById(id);
 
             FornecedorViewModel fornecedorViewModel1 = new FornecedorViewModel
             {
-                Id = EntityDornecedor.Id,
-                Nome = EntityDornecedor.Nome,
-                CNPJ = EntityDornecedor.CNPJ,
-                Telefone = EntityDornecedor.Telefone,
-                Email = EntityDornecedor.Email,
-                Endereco = EntityDornecedor.Endereco,
+                Id = EntityFornecedor.Id,
+                Nome = EntityFornecedor.Nome,
+                CNPJ = EntityFornecedor.CNPJ,
+                Telefone = EntityFornecedor.Telefone,
+                Email = EntityFornecedor.Email,
+                Endereco = EntityFornecedor.Endereco,
             };
 
             return fornecedorViewModel1;

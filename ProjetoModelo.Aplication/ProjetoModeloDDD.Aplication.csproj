@@ -48,9 +48,11 @@
     <Compile Include="Interfaces\IColaboradorApplicationService.cs" />
     <Compile Include="Interfaces\IClienteAppService.cs" />
     <Compile Include="Interfaces\IFornecedorApplicationService.cs" />
+    <Compile Include="Interfaces\IProdutoApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ColaboradorAppService.cs" />
     <Compile Include="Services\FornecedorAppService.cs" />
+    <Compile Include="Services\ProdutoAppService.cs" />
     <Compile Include="ViewModels\ClienteViewModel.cs" />
     <Compile Include="ViewModels\ColaboradorViewModel.cs" />
     <Compile Include="ViewModels\FornecedorViewModel.cs" />

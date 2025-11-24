@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoModelo.Infra.Data.Repositories
 {
-    class ProdutoRepository : RepositoryBase<Produto>, IProdutoRepository
+    public class ProdutoRepository : RepositoryBase<Produto>, IProdutoInfraDataRepository
     {
         public ProdutoRepository(ProjetoModeloContext projetoModeloContext) : base(projetoModeloContext)
         {

@@ -50,12 +50,14 @@
     <Compile Include="Interfaces\Repositories\IColaboradorInfraDataRepository.cs" />
     <Compile Include="Interfaces\Repositories\IFornecedorInfraDataRepository.cs" />
     <Compile Include="Interfaces\Services\IColaboradorDomainService.cs" />
-    <Compile Include="Interfaces\Repositories\IProdutoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IProdutoInfraDataRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
     <Compile Include="Interfaces\Services\IFornecedorDomainService.cs" />
+    <Compile Include="Interfaces\Services\IProdutoDomainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ColaboradorDomainService.cs" />
     <Compile Include="Services\FornecedorDomainService.cs" />
+    <Compile Include="Services\ProdutoDomainService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

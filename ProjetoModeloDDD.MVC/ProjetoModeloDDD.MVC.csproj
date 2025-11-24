@@ -193,6 +193,7 @@
     <Compile Include="Controllers\ColaboradorController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -232,7 +233,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Cliente\Create.cshtml" />
@@ -243,6 +243,10 @@
     <Content Include="Views\Fornecedor\Edit.cshtml" />
     <Content Include="Views\Fornecedor\Delete.cshtml" />
     <Content Include="Views\Fornecedor\Details.cshtml" />
+    <Content Include="Views\Colaborador\Edit.cshtml" />
+    <Content Include="Views\Colaborador\Details.cshtml" />
+    <Content Include="Views\Colaborador\Delete.cshtml" />
+    <Content Include="Views\Produto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

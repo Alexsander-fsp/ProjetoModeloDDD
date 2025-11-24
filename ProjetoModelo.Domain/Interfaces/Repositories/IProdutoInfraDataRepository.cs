@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PrimeiroModelo.Domain.Interfaces.Repositories
 {
-    public interface IProdutoRepository : IRepositoryBase<Produto>
+    public interface IProdutoInfraDataRepository : IRepositoryBase<Produto>
     {
         IEnumerable<Produto> BuscarPorNome(string nome);
     }
