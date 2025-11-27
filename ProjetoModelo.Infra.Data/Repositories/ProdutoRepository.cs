@@ -20,5 +20,6 @@ namespace ProjetoModelo.Infra.Data.Repositories
         {
             return _projetoModeloContext.Produto.Where(p => p.Nome == nome);
         }
+        
     }
 }

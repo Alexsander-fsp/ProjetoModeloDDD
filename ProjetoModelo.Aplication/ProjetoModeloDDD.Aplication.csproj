@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Commands\ColaboradorCommand.cs" />
     <Compile Include="Commands\FornecedorCommand.cs" />
+    <Compile Include="Commands\ProdutoCommand.cs" />
     <Compile Include="Interfaces\IColaboradorApplicationService.cs" />
     <Compile Include="Interfaces\IClienteAppService.cs" />
     <Compile Include="Interfaces\IFornecedorApplicationService.cs" />

@@ -1,4 +1,5 @@
-﻿using ProjetoModeloDDD.Aplication.ViewModels;
+﻿using ProjetoModeloDDD.Aplication.Commands;
+using ProjetoModeloDDD.Aplication.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace ProjetoModeloDDD.Aplication.Interfaces
 {
     public interface IProdutoApplicationService
     {
+        void Atualizar(ProdutoCommand produtoCommand); 
+        void Excluir(int id);
         List<ProdutoViewModel> GetAll();
+        ProdutoCommand GetById(int id);
+        ProdutoViewModel GetByIdViewModel(int id);
+        void Salvar(ProdutoCommand produtocommand);
     }
 }

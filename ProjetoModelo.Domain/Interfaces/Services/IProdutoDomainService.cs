@@ -10,6 +10,10 @@ namespace PrimeiroModelo.Domain.Interfaces.Services
 {
     public interface IProdutoDomainService
     {
+        void Add(Produto produto);
+        void Atualizar(Produto produto);
+        void Excluir(int id);
         List<Produto> GetAll();
+        Produto GetById(int id);
     }
 }

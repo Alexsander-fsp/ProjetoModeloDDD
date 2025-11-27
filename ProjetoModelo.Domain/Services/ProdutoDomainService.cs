@@ -17,9 +17,29 @@ namespace PrimeiroModelo.Domain.Services
             _produtoInfraDataRepository = produtoRepository;
         }
 
+        public void Add(Produto produto)
+        {
+            _produtoInfraDataRepository.Add(produto);
+        }
+
+        public void Atualizar(Produto produto)
+        {
+            _produtoInfraDataRepository.Update(produto);
+        }
+
+        public void Excluir(int id)
+        {
+            _produtoInfraDataRepository.RemoveById(id);
+        }
+
         public List<Produto> GetAll()
         {
            return _produtoInfraDataRepository.GetAll().ToList();
+        }
+
+        public Produto GetById(int id)
+        {
+            return _produtoInfraDataRepository.GetById(id);
         }
     }
 }
